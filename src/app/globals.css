@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f4efe4;
+  --paper-strong: #ece4d3;
+  --ink: #141310;
+  --line: rgba(20, 19, 16, 0.1);
+  --display-font: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --body-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 24%),
+    linear-gradient(135deg, rgba(20, 19, 16, 0.04) 0%, rgba(20, 19, 16, 0) 40%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--body-font);
+}
+
+::selection {
+  background: rgba(255, 107, 61, 0.18);
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14;
+  }
+
+  .display-font {
+    font-family: var(--display-font);
+  }
+
+  .section-kicker {
+    @apply text-[0.68rem] uppercase tracking-signal;
+  }
+
+  .editorial-panel {
+    @apply rounded-[1.8rem] border border-black/10 bg-[rgba(255,255,255,0.68)] p-5 shadow-card backdrop-blur-sm sm:p-6;
+  }
+
+  .display-shell {
+    background-color: #181714;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-semibold text-[#f6f0e4] transition hover:-translate-y-0.5 hover:bg-[#1c1a16];
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border bg-white px-5 py-3 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:border-black/25;
+    border-color: rgba(20, 19, 16, 0.12);
+  }
+
+  .button-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border bg-white/5 px-4 py-2.5 text-sm font-semibold text-[#f6f0e4] transition hover:bg-white/10;
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .field {
+    @apply w-full rounded-[1.1rem] border bg-white px-4 py-3 text-base text-black outline-none transition placeholder:text-black/25 focus:border-black/25 focus:ring-2 focus:ring-black/5;
+    border-color: rgba(20, 19, 16, 0.12);
+  }
+
+  .field-dark {
+    @apply bg-white/5 text-[#f6f0e4] placeholder:text-white/25 focus:border-white/20 focus:ring-white/5;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .small-label {
+    @apply text-[0.64rem] uppercase tracking-signal text-black/40;
+  }
+
+  .tag {
+    @apply rounded-full border px-3 py-1 text-[0.62rem] uppercase tracking-signal text-black/55;
+    border-color: rgba(20, 19, 16, 0.12);
+    background: rgba(20, 19, 16, 0.04);
+  }
+
+  .status-panel {
+    @apply rounded-[1.2rem] border border-black/10 bg-black/5 px-4 py-4 text-sm leading-6;
+    color: rgba(20, 19, 16, 0.72);
+  }
+
+  .status-panel-success {
+    @apply border-[#b5d98a] bg-[#edf6df] text-[#294019];
+  }
+
+  .status-panel-error {
+    @apply border-[#f1b2a0] bg-[#fff0eb] text-[#6b2415];
+  }
+
+  .icon-button {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-black transition hover:-translate-y-0.5 hover:border-black/25;
+  }
+
+  .button-primary:disabled,
+  .button-secondary:disabled,
+  .button-ghost:disabled,
+  .icon-button:disabled {
+    @apply cursor-not-allowed;
+    opacity: 0.45;
+    transform: none;
+  }
+}
